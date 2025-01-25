@@ -1,0 +1,114 @@
+# callable
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/compile/callable.mojo)
+
+## Structs
+
+### Struct: Callable
+
+Callable is the main data structure for Just-In-Time (JIT) compiling a function and computing gradients in a functional manner. It encapsulates the function, its arguments, and the captured computation graph, enabling dynamic optimization and execution.
+
+
+
+#### Fields
+
+- ``args``: ``ArcPointer[List[Array]]``
+  
+
+  
+
+- ``argnums``: ``List[List[Int]]``
+  
+
+  
+
+- ``func``: ``Variant[fn(List[Array]) raises -> Array, fn(Array) raises -> Array]``
+  
+
+  
+
+- ``captured_graph``: ``ArcPointer[FxGraph]``
+  
+
+  
+
+- ``order_of_differentiation``: ``Int``
+  
+
+  
+
+- ``optimize_jit``: ``Bool``
+  
+
+  
+
+- ``args_initialized``: ``Bool``
+  
+
+  
+
+- ``keep_intermediate_outs``: ``Bool``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, func: Variant[fn(List[Array]) raises -> Array, fn(Array) raises -> Array], argnums: List[List[Int]], order_of_differentiation: Int = 0, optimize_jit: Bool = True, keep_intermediate_outs: Bool = False, compile_with_MAX: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``func``: ``Variant[fn(List[Array]) raises -> Array, fn(Array) raises -> Array]``
+  
+
+- ``argnums``: ``List[List[Int]]``
+  
+
+- ``order_of_differentiation``: ``Int`` (default: ``0``)
+  
+
+- ``optimize_jit``: ``Bool`` (default: ``True``)
+  
+
+- ``keep_intermediate_outs``: ``Bool`` (default: ``False``)
+  
+
+- ``compile_with_MAX``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+__call__(self, args: List[Array]) -> Variant[Array, List[Array], List[List[Array]]]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``Variant[Array, List[Array], List[List[Array]]]`` - 
+
+
+</details>
+
+## Functions
+

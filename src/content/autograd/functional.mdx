@@ -1,0 +1,421 @@
+# functional
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/autograd/functional.mojo)
+
+## Structs
+
+## Functions
+
+#### **backward**
+
+```python
+backward(arg: Array, create_graph: Bool)
+```
+
+<details>
+<summary>Performs backward propagation on the given Array.</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``create_graph``: ``Bool``
+  
+
+
+</details>
+
+#### **jacrev**
+
+```python
+jacrev(arg: Array, create_graph: Bool)
+```
+
+<details>
+<summary>Computes the reverse-mode Jacobian for the given Array.</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``create_graph``: ``Bool``
+  
+
+
+</details>
+
+#### **grad**
+
+```python
+grad(outs: List[Array], inputs: List[Array], retain_grads: Bool = True, create_graph: Bool = False) -> List[Array]
+```
+
+<details>
+<summary>Computes gradients of outputs with respect to inputs.</summary>
+
+###### Args
+
+- ``outs``: ``List[Array]``
+  
+
+- ``inputs``: ``List[Array]``
+  
+
+- ``retain_grads``: ``Bool`` (default: ``True``)
+  
+
+- ``create_graph``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+grad(f: Callable, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the gradient of a Callable function with respect to specified arguments.</summary>
+
+###### Args
+
+- ``f``: ``Callable``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+grad(f: fn(List[Array]) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the gradient of a function that takes a list of Arrays and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+grad(f: fn(Array) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the gradient of a function that takes a single Array and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(Array) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+#### **jacobian**
+
+```python
+jacobian(f: Callable, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Jacobian of a Callable function with respect to specified arguments.</summary>
+
+###### Args
+
+- ``f``: ``Callable``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+jacobian(f: fn(List[Array]) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Jacobian of a function that takes a list of Arrays and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+jacobian(f: fn(Array) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Jacobian of a function that takes a single Array and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(Array) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+jacobian(f: Callable, args: List[Array]) -> List[Array]
+```
+
+<details>
+<summary>Computes the Jacobian of a Callable function with respect to given arguments.</summary>
+
+###### Args
+
+- ``f``: ``Callable``
+  
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jacobian(f: fn(List[Array]) raises -> Array, args: List[Array]) -> List[Array]
+```
+
+<details>
+<summary>Computes the Jacobian of a function that takes a list of Arrays with respect to given arguments.</summary>
+
+###### Args
+
+- ``f``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jacobian(f: fn(Array) raises -> Array, arg: Array) -> Array
+```
+
+<details>
+<summary>Computes the Jacobian of a function that takes a single Array with respect to the given argument.</summary>
+
+###### Args
+
+- ``f``: ``fn(Array) raises -> Array``
+  
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **hessian**
+
+```python
+hessian(f: Callable, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Hessian of a Callable function with respect to specified arguments.</summary>
+
+###### Args
+
+- ``f``: ``Callable``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+hessian(f: fn(List[Array]) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Hessian of a function that takes a list of Arrays and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+hessian(f: fn(Array) raises -> Array, argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes the Hessian of a function that takes a single Array and returns an Array.</summary>
+
+###### Args
+
+- ``f``: ``fn(Array) raises -> Array``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+hessian(f: Callable, args: List[Array]) -> List[Array]
+```
+
+<details>
+<summary>Computes the Hessian of a Callable function with respect to given arguments.</summary>
+
+###### Args
+
+- ``f``: ``Callable``
+  
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+hessian(f: fn(List[Array]) raises -> Array, args: List[Array]) -> List[Array]
+```
+
+<details>
+<summary>Computes the Hessian of a function that takes a list of Arrays with respect to given arguments.</summary>
+
+###### Args
+
+- ``f``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+hessian(f: fn(Array) raises -> Array, arg: Array) -> Array
+```
+
+<details>
+<summary>Computes the Hessian of a function that takes a single Array with respect to the given argument.</summary>
+
+###### Args
+
+- ``f``: ``fn(Array) raises -> Array``
+  
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **value_and_grad**
+
+```python
+value_and_grad(arg: Variant[Callable, fn(List[Array]) raises -> Array], argnums: List[Int] = List(-1)) -> Callable
+```
+
+<details>
+<summary>Computes both the value and gradient of a function or Callable with respect to specified arguments.</summary>
+
+###### Args
+
+- ``arg``: ``Variant[Callable, fn(List[Array]) raises -> Array]``
+  
+
+- ``argnums``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+

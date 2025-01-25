@@ -1,0 +1,113 @@
+# python_utils
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/utils/python_utils.mojo)
+
+## Structs
+
+## Functions
+
+#### **memcpy_to_numpy**
+
+```python
+memcpy_to_numpy(array: PythonObject, tensor: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``array``: ``PythonObject``
+  
+
+- ``tensor``: ``Array``
+  
+
+
+</details>
+
+#### **shape_to_python_list**
+
+```python
+shape_to_python_list(shape: List[Int]) -> PythonObject
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+###### Returns
+- ``PythonObject`` - 
+
+
+</details>
+
+#### **get_np_dtype**
+
+```python
+get_np_dtype[dtype: DType](np: PythonObject) -> PythonObject
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``np``: ``PythonObject``
+  
+
+###### Returns
+- ``PythonObject`` - 
+
+
+</details>
+
+#### **array_to_numpy**
+
+```python
+array_to_numpy(tensor: Array, np: PythonObject) -> PythonObject
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``tensor``: ``Array``
+  
+
+- ``np``: ``PythonObject``
+  
+
+###### Returns
+- ``PythonObject`` - 
+
+
+</details>
+
+#### **tensor_to_array**
+
+```python
+tensor_to_array(owned src: Tensor[float32]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``src``: ``Tensor[float32]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+

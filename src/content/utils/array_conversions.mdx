@@ -1,0 +1,76 @@
+# array_conversions
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/utils/array_conversions.mojo)
+
+## Structs
+
+## Functions
+
+#### **to_torch**
+
+```python
+to_torch(arg: Array) -> PythonObject
+```
+
+<details>
+<summary>Converts an endia Array to a torch tensor.</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``PythonObject`` - 
+
+
+</details>
+
+#### **to_torch_tensor**
+
+```python
+to_torch_tensor(arg: Array) -> PythonObject
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``PythonObject`` - 
+
+
+</details>
+
+#### **is_close**
+
+```python
+is_close(x: Array, x_torch: PythonObject, rtol: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|10000>)) -> Bool
+```
+
+<details>
+<summary>Checks if the values in the endia Array and the torch tensor are equal up to a relative tolerance.</summary>
+
+###### Args
+
+- ``x``: ``Array``
+  
+
+- ``x_torch``: ``PythonObject``
+  
+
+- ``rtol``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|10000>)``)
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+

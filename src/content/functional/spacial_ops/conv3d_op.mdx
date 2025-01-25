@@ -1,0 +1,175 @@
+# conv3d_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/spacial_ops/conv3d_op.mojo)
+
+## Structs
+
+### Struct: Conv3d
+
+Namespace for 3D convolution operations.
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after a 3-dimensional convolution operation.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  The ArrayShape to store the result of the computation.
+
+- ``args``: ``List[ArrayShape]``
+  The input ArrayShape, and the convolution parameters encoded in an ArrayShape.
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array, kernel: Array, bias: Array, stride: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True)), groups: Int = 1) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``kernel``: ``Array``
+  
+
+- ``bias``: ``Array``
+  
+
+- ``stride``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+- ``padding``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0}), store_to_mem({0})>, True))``)
+  
+
+- ``dilation``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+- ``groups``: ``Int`` (default: ``1``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+## Functions
+
+#### **conv3d**
+
+```python
+conv3d(arg0: Array, kernel: Array, bias: Array, stride: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True)), groups: Int = 1) -> Array
+```
+
+<details>
+<summary>Applies a 3D convolution operation over an input array.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``kernel``: ``Array``
+  The convolution kernel.
+
+- ``bias``: ``Array``
+  The bias tensor.
+
+- ``stride``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True))``)
+  The stride of the convolution operation. Defaults to (1, 1, 1).
+
+- ``padding``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0}), store_to_mem({0})>, True))``)
+  The padding to apply to the input. Defaults to (0, 0, 0).
+
+- ``dilation``: ``Tuple[Int, Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1}), store_to_mem({1})>, True))``)
+  The dilation to apply to the input. Defaults to (1, 1, 1).
+
+- ``groups``: ``Int`` (default: ``1``)
+  The number of groups to split the input and output channels into. Defaults to 1.
+
+###### Returns
+- ``Array`` - Array: The output array.
+
+
+</details>
+

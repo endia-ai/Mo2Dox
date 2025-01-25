@@ -1,0 +1,212 @@
+# view_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/view_ops/view_op.mojo)
+
+## Structs
+
+### Struct: Reshape
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after reshaping.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  The ArrayShape to store the result of the computation.
+
+- ``args``: ``List[ArrayShape]``
+  The ArrayShape to reshape, and the shape, stride and storage offset of the target ArrayShape encoded in a  single ArrayShape.
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>Performs the forward pass for the reshape operation. It sets the base of the argument to be the base of the current array and computes the shape of the current array via its dedicated ArraySahpe fwd fucntion.</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  The current array to store the result (modified in-place).
+
+- ``args``: ``List[Array]``
+  The array on which the reshape view is created.
+
+**Note:**
+The information of the shape computation is stored in the ArrayShape object of the curr array.
+
+#### Constraints:
+- The number of elements in the input array must be equal to the number of elements in the target shape.
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>Computes the vector-Jacobian product for the reshape operation.</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  A list containing the primal input array.
+
+- ``grad``: ``Array``
+  The gradient of the output with respect to some scalar function.
+
+- ``out``: ``Array``
+  The output of the forward pass.
+
+###### Returns
+- ``List[Array]`` - A list containing the gradient with respect to the input.
+
+**Note:**
+The vector-Jacobian product for reshape is computed by calling the reshape operation.
+
+
+</details>
+
+```python
+fwd(arg0: Array, shape: List[Int]) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with the given shape.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``shape``: ``List[Int]``
+  The target shape.
+
+###### Returns
+- ``Array`` - The reshaped array.
+
+#### Constraints:
+- The number of elements in the input array must be equal to the number of elements in the target shape.
+
+
+</details>
+
+## Functions
+
+#### **reshape**
+
+```python
+reshape(arg0: Array, shape: List[Int]) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with the given shape.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``shape``: ``List[Int]``
+  The target shape.
+
+###### Returns
+- ``Array`` - The reshaped array.
+
+#### Constraints:
+- The number of elements in the input array must be equal to the number of elements in the target shape.
+
+
+</details>
+
+#### **view**
+
+```python
+view(arg0: Array, shape: List[Int]) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with the given shape.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``shape``: ``List[Int]``
+  The target shape.
+
+###### Returns
+- ``Array`` - The reshaped array.
+
+#### Constraints:
+- The number of elements in the input array must be equal to the number of elements in the target shape.
+
+**Note:**
+This function is a wrapper around the reshape function.
+
+
+</details>
+
+#### **flatten**
+
+```python
+flatten(arg0: Array) -> Array
+```
+
+<details>
+<summary>Flattens the input array.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+###### Returns
+- ``Array`` - The flattened array.
+
+**Note:**
+This function is a wrapper around the reshape function.
+
+
+</details>
+

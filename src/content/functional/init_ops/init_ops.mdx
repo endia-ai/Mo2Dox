@@ -1,0 +1,1240 @@
+# init_ops
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/init_ops/init_ops.mojo)
+
+## Structs
+
+## Functions
+
+#### **array**
+
+```python
+array(dims: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``dims``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+array(arr_str: StringLiteral, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arr_str``: ``StringLiteral``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **tensor**
+
+```python
+tensor(dims: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``dims``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+tensor(arr_str: StringLiteral, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arr_str``: ``StringLiteral``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **ndarray**
+
+```python
+ndarray(dims: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``dims``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+ndarray(arr_str: StringLiteral, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arr_str``: ``StringLiteral``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **Tensor**
+
+```python
+Tensor(dims: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``dims``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+Tensor(arr_str: StringLiteral, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arr_str``: ``StringLiteral``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **arange_**
+
+```python
+arange_(mut arg: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+
+</details>
+
+#### **linspace**
+
+```python
+linspace(start: SIMD[float32, 1] = SIMD(0), end: SIMD[float32, 1] = SIMD(1), num: Int = 50, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``start``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``end``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``num``: ``Int`` (default: ``50``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **arange**
+
+```python
+arange(start: SIMD[float32, 1] = SIMD(0), end: SIMD[float32, 1] = SIMD(1), step: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``start``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``end``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``step``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **zeros_**
+
+```python
+zeros_(mut arg: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+
+</details>
+
+#### **zeros**
+
+```python
+zeros(shape: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **zeros_like**
+
+```python
+zeros_like(arg: Array) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **ones_**
+
+```python
+ones_(mut arg: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+
+</details>
+
+#### **ones**
+
+```python
+ones(shape: List[Int], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **ones_like**
+
+```python
+ones_like(arg: Array) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **eye_**
+
+```python
+eye_(mut arg: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+
+</details>
+
+#### **eye**
+
+```python
+eye(n: Int, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``n``: ``Int``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **eye_like**
+
+```python
+eye_like(arg: Array) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **fill_**
+
+```python
+fill_(mut arg: Array, value: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``value``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+#### **full**
+
+```python
+full(shape: List[Int], value: SIMD[float32, 1], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``value``: ``SIMD[float32, 1]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **fill_like**
+
+```python
+fill_like(arg: Array, value: SIMD[float32, 1]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``value``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **indeces**
+
+```python
+indeces(shape: List[Int], stride: List[Int], storage_offset: Int, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``stride``: ``List[Int]``
+  
+
+- ``storage_offset``: ``Int``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randu_**
+
+```python
+randu_(mut arg: Array, min: SIMD[float32, 1] = SIMD(0), max: SIMD[float32, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``min``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``max``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **randu**
+
+```python
+randu(shape: List[Int], min: SIMD[float32, 1] = SIMD(0), max: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``min``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``max``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randu_like**
+
+```python
+randu_like(mut arg: Array, min: SIMD[float32, 1] = SIMD(0), max: SIMD[float32, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``min``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``max``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randn_**
+
+```python
+randn_(mut arg: Array, mean: SIMD[float64, 1] = SIMD(0), std: SIMD[float64, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``mean``: ``SIMD[float64, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``std``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **randn**
+
+```python
+randn(shape: List[Int], mean: SIMD[float64, 1] = SIMD(0), std: SIMD[float64, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``mean``: ``SIMD[float64, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``std``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randn_like**
+
+```python
+randn_like(mut arg: Array, mean: SIMD[float64, 1] = SIMD(0), std: SIMD[float64, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``mean``: ``SIMD[float64, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``std``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_he_normal_**
+
+```python
+rand_he_normal_(mut arg: Array, fan_in: SIMD[float64, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_he_normal**
+
+```python
+rand_he_normal(shape: List[Int], fan_in: SIMD[float64, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_he_normal_like**
+
+```python
+rand_he_normal_like(arg: Array, fan_in: SIMD[float64, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_he_uniform_**
+
+```python
+rand_he_uniform_(mut arg: Array, fan_in: SIMD[float32, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_he_uniform**
+
+```python
+rand_he_uniform(shape: List[Int], fan_in: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_he_uniform_like**
+
+```python
+rand_he_uniform_like(arg: Array, fan_in: SIMD[float32, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_xavier_normal_**
+
+```python
+rand_xavier_normal_(mut arg: Array, fan_in: SIMD[float64, 1] = SIMD(1), fan_out: SIMD[float64, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_xavier_normal**
+
+```python
+rand_xavier_normal(shape: List[Int], fan_in: SIMD[float64, 1] = SIMD(1), fan_out: SIMD[float64, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_xavier_normal_like**
+
+```python
+rand_xavier_normal_like(mut arg: Array, fan_in: SIMD[float64, 1] = SIMD(1), fan_out: SIMD[float64, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_xavier_uniform_**
+
+```python
+rand_xavier_uniform_(mut arg: Array, fan_in: SIMD[float32, 1] = SIMD(1), fan_out: SIMD[float32, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_xavier_uniform**
+
+```python
+rand_xavier_uniform(shape: List[Int], fan_in: SIMD[float32, 1] = SIMD(1), fan_out: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_xavier_uniform_like**
+
+```python
+rand_xavier_uniform_like(mut arg: Array, fan_in: SIMD[float32, 1] = SIMD(1), fan_out: SIMD[float32, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``fan_out``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_lecun_normal_**
+
+```python
+rand_lecun_normal_(mut arg: Array, fan_in: SIMD[float64, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_lecun_normal**
+
+```python
+rand_lecun_normal(shape: List[Int], fan_in: SIMD[float64, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_lecun_normal_like**
+
+```python
+rand_lecun_normal_like(mut arg: Array, fan_in: SIMD[float64, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_lecun_uniform_**
+
+```python
+rand_lecun_uniform_(mut arg: Array, fan_in: SIMD[float32, 1] = SIMD(1))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **rand_lecun_uniform**
+
+```python
+rand_lecun_uniform(shape: List[Int], fan_in: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **rand_lecun_uniform_like**
+
+```python
+rand_lecun_uniform_like(mut arg: Array, fan_in: SIMD[float32, 1] = SIMD(1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+- ``fan_in``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **complex**
+
+```python
+complex(real: Array, imag: Array, requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``real``: ``Array``
+  
+
+- ``imag``: ``Array``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randn_complex**
+
+```python
+randn_complex(shape: List[Int], mean: SIMD[float64, 1] = SIMD(0), std: SIMD[float64, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``mean``: ``SIMD[float64, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``std``: ``SIMD[float64, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **randu_complex**
+
+```python
+randu_complex(shape: List[Int], min: SIMD[float32, 1] = SIMD(0), max: SIMD[float32, 1] = SIMD(1), requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``min``: ``SIMD[float32, 1]`` (default: ``SIMD(0)``)
+  
+
+- ``max``: ``SIMD[float32, 1]`` (default: ``SIMD(1)``)
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **fill_complex**
+
+```python
+fill_complex(shape: List[Int], value_real: SIMD[float32, 1], value_imag: SIMD[float32, 1], requires_grad: Bool = False) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``shape``: ``List[Int]``
+  
+
+- ``value_real``: ``SIMD[float32, 1]``
+  
+
+- ``value_imag``: ``SIMD[float32, 1]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+

@@ -1,0 +1,148 @@
+# detach_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/view_ops/detach_op.mojo)
+
+## Structs
+
+### Struct: Detach
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after detaching.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  The ArrayShape to store the result of the computation.
+
+- ``args``: ``List[ArrayShape]``
+  The ArrayShape to detach.
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>Performs the forward pass for the detach operation. It sets the base of the argument to be the base of the current array and computes the shape of the current array via its dedicated ArraySahpe fwd fucntion.</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  The current array to store the result (modified in-place).
+
+- ``args``: ``List[Array]``
+  The array to detach.
+
+**Note:**
+The information of the shape computation is stored in the ArrayShape object of the curr array.
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array) -> Array
+```
+
+<details>
+<summary>Detaches the input array from the computation graph.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+###### Returns
+- ``Array`` - The detached array.
+
+**Note:**
+This function is non-differentiable.
+
+
+</details>
+
+## Functions
+
+#### **detach**
+
+```python
+detach(arg0: Array) -> Array
+```
+
+<details>
+<summary>Detaches the input array from the computation graph.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+###### Returns
+- ``Array`` - The detached array.
+
+**Note:**
+This function is non-differentiable.
+
+
+</details>
+

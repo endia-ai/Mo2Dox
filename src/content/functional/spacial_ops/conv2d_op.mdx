@@ -1,0 +1,175 @@
+# conv2d_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/spacial_ops/conv2d_op.mojo)
+
+## Structs
+
+### Struct: Conv2d
+
+Namespace for 2D convolution operations.
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after a 2-dimensional convolution operation.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  
+
+- ``args``: ``List[ArrayShape]``
+  
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array, kernel: Array, bias: Array, stride: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), groups: Int = 1) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``kernel``: ``Array``
+  
+
+- ``bias``: ``Array``
+  
+
+- ``stride``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+- ``padding``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True))``)
+  
+
+- ``dilation``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+- ``groups``: ``Int`` (default: ``1``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+## Functions
+
+#### **conv2d**
+
+```python
+conv2d(arg0: Array, kernel: Array, bias: Array, stride: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), groups: Int = 1) -> Array
+```
+
+<details>
+<summary>Applies a 2D convolution over an input image composed of several input planes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  Input tensor of shape (batch_size, in_channels, height, width).
+
+- ``kernel``: ``Array``
+  Convolution kernel of shape (out_channels, in_channels // groups, kernel_height, kernel_width).
+
+- ``bias``: ``Array``
+  Bias tensor of shape (out_channels).
+
+- ``stride``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  Stride of the convolution.
+
+- ``padding``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True))``)
+  Zero-padding added to both sides of the input.
+
+- ``dilation``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  Spacing between kernel elements.
+
+- ``groups``: ``Int`` (default: ``1``)
+  Number of blocked connections from input channels to output channels.
+
+###### Returns
+- ``Array`` - Output tensor of shape (batch_size, out_channels, output_height, output_width).
+
+
+</details>
+

@@ -1,0 +1,207 @@
+# general
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/utils/general.mojo)
+
+## Structs
+
+### Struct: InplaceInfo
+
+
+
+
+
+#### Fields
+
+- ``type``: ``Int``
+  
+
+  
+
+- ``idx``: ``Int``
+  
+
+  
+
+- ``arg_id``: ``Int``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, type: Int, idx: Int, arg_id: Int = -1)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``type``: ``Int``
+  
+
+- ``idx``: ``Int``
+  
+
+- ``arg_id``: ``Int`` (default: ``-1``)
+  
+
+
+</details>
+
+## Functions
+
+#### **reset_node_id_recursive**
+
+```python
+reset_node_id_recursive(mut curr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+
+</details>
+
+#### **top_order_rec**
+
+```python
+top_order_rec(mut curr: Array, mut trace: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``trace``: ``List[Array]``
+  
+
+
+</details>
+
+#### **zero_grad_recursive**
+
+```python
+zero_grad_recursive(mut curr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+
+</details>
+
+#### **zero_grad_rec**
+
+```python
+zero_grad_rec(mut curr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+
+</details>
+
+#### **remove_grad_recursive**
+
+```python
+remove_grad_recursive(mut curr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+
+</details>
+
+#### **remove_grad_rec**
+
+```python
+remove_grad_rec(mut curr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+
+</details>
+
+#### **concat_lists**
+
+```python
+concat_lists(*lists: List[Int]) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``*lists``: ``List[Int]``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+#### **list_contains**
+
+```python
+list_contains(list: List[Int], val: Int) -> Bool
+```
+
+<details>
+<summary>Checks if a list fo Ints contains a specific value.</summary>
+
+###### Args
+
+- ``list``: ``List[Int]``
+  The list of Ints to check.
+
+- ``val``: ``Int``
+  The value to check for.
+
+###### Returns
+- ``Bool`` - True if the value is in the list, False otherwise.
+
+
+</details>
+

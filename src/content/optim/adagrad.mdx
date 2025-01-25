@@ -1,0 +1,79 @@
+# adagrad
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/optim/adagrad.mojo)
+
+## Structs
+
+### Struct: Adagrad
+
+
+
+
+
+#### Fields
+
+- ``params``: ``List[Array]``
+  
+
+  
+
+- ``lr``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``eps``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``cache``: ``List[Array]``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, params: List[Array], lr: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|100>), eps: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|100000000>))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``params``: ``List[Array]``
+  
+
+- ``lr``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|100>)``)
+  
+
+- ``eps``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|100000000>)``)
+  
+
+
+</details>
+
+```python
+step(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+## Functions
+

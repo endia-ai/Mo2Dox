@@ -1,0 +1,163 @@
+# avg_pool1d_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/spacial_ops/avg_pool1d_op.mojo)
+
+## Structs
+
+### Struct: AvgPool1d
+
+Namespace for 1D average pooling operations.
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after a 1-dimensional average pooling operation with dilation.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  
+
+- ``args``: ``List[ArrayShape]``
+  
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array, kernel_size: Int, stride: Int = 1, padding: Int = 0, dilation: Int = 1) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``kernel_size``: ``Int``
+  
+
+- ``stride``: ``Int`` (default: ``1``)
+  
+
+- ``padding``: ``Int`` (default: ``0``)
+  
+
+- ``dilation``: ``Int`` (default: ``1``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+## Functions
+
+#### **avg_pool1d**
+
+```python
+avg_pool1d(arg0: Array, kernel_size: Int, stride: Int = 1, padding: Int = 0, dilation: Int = 1) -> Array
+```
+
+<details>
+<summary>Applies a 1D average pooling operation over an input array.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``kernel_size``: ``Int``
+  The size of the kernel.
+
+- ``stride``: ``Int`` (default: ``1``)
+  The stride of the pooling operation. Defaults to 1.
+
+- ``padding``: ``Int`` (default: ``0``)
+  The padding to apply to the input. Defaults to 0.
+
+- ``dilation``: ``Int`` (default: ``1``)
+  The dilation to apply to the input. Defaults to 1.
+
+###### Returns
+- ``Array`` - Array: The output array.
+
+
+</details>
+

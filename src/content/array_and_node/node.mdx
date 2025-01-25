@@ -1,0 +1,177 @@
+# node
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/array_and_node/node.mojo)
+
+## Structs
+
+### Struct: Node
+
+Node is the central data structure representing an array in the autograd engine. It is responsible for encapsulating all the necessary information and metadata related to an array, including its shape, data, operations, gradients, and dependencies.
+
+
+
+#### Fields
+
+- ``id``: ``Int``
+  
+
+  
+
+- ``name``: ``String``
+  
+
+  
+
+- ``shape``: ``ArcPointer[ShapeNode]``
+  
+
+  
+
+- ``data``: ``UnsafePointer[SIMD[float32, 1]]``
+  
+
+  
+
+- ``is_view``: ``Bool``
+  
+
+  
+
+- ``base``: ``List[ArcPointer[Node]]``
+  
+
+  
+
+- ``args``: ``List[ArcPointer[Node]]``
+  
+
+  
+
+- ``kwargs``: ``List[ArcPointer[Node]]``
+  
+
+  
+
+- ``grads``: ``List[ArcPointer[Node]]``
+  
+
+  
+
+- ``fwd``: ``fn(mut Array, List[Array]) raises -> None``
+  
+
+  
+
+- ``uew``: ``List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]``
+  
+
+  
+
+- ``bew``: ``List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]``
+  
+
+  
+
+- ``simd_op_list``: ``List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]``
+  
+
+  
+
+- ``inplace_infos``: ``List[InplaceInfo]``
+  
+
+  
+
+- ``jvp``: ``fn(List[Array], List[Array]) raises -> Array``
+  
+
+  
+
+- ``vjp``: ``fn(List[Array], Array, Array) raises -> List[Array]``
+  
+
+  
+
+- ``requires_grad``: ``Bool``
+  
+
+  
+
+- ``compute_jvp``: ``Bool``
+  
+
+  
+
+- ``graph``: ``Optional[ArcPointer[FxGraph]]``
+  
+
+  
+
+- ``id_in_graph``: ``Optional[Int]``
+  
+
+  
+
+- ``has_real``: ``Bool``
+  
+
+  
+
+- ``has_imag``: ``Bool``
+  
+
+  
+
+- ``meta_data``: ``ArcPointer[List[Int]]``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, array_shape: ArrayShape, requires_grad: Bool = False, is_complex: Bool = False, is_view: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``array_shape``: ``ArrayShape``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+- ``is_complex``: ``Bool`` (default: ``False``)
+  
+
+- ``is_view``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+__del__(owned self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+## Functions
+

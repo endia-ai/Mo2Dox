@@ -1,0 +1,75 @@
+# functional
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/compile/functional.mojo)
+
+## Structs
+
+## Functions
+
+#### **jit**
+
+```python
+jit(arg: Callable, compile_with_MAX: Bool = True) -> Callable
+```
+
+<details>
+<summary>Jit and cache the given function or Callable.</summary>
+
+###### Args
+
+- ``arg``: ``Callable``
+  
+
+- ``compile_with_MAX``: ``Bool`` (default: ``True``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+jit(arg: fn(List[Array]) raises -> Array, compile_with_MAX: Bool = True) -> Callable
+```
+
+<details>
+<summary>Jit and cache the given function or Callable.</summary>
+
+###### Args
+
+- ``arg``: ``fn(List[Array]) raises -> Array``
+  
+
+- ``compile_with_MAX``: ``Bool`` (default: ``True``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+
+```python
+jit(arg: fn(Array) raises -> Array, compile_with_MAX: Bool = True) -> Callable
+```
+
+<details>
+<summary>Jit and cache the given function or Callable.</summary>
+
+###### Args
+
+- ``arg``: ``fn(Array) raises -> Array``
+  
+
+- ``compile_with_MAX``: ``Bool`` (default: ``True``)
+  
+
+###### Returns
+- ``Callable`` - 
+
+
+</details>
+

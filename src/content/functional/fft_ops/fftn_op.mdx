@@ -1,0 +1,133 @@
+# fftn_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/fft_ops/fftn_op.mojo)
+
+## Structs
+
+### Struct: FFTN
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+fwd(arg0: Array, dims: List[Int], norm: String) -> Array
+```
+
+<details>
+<summary>Sets up the Array object for the FFT operation.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``dims``: ``List[Int]``
+  
+
+- ``norm``: ``String``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>Computes the Jacobian-vector product for the FFT function.</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>Computes the vector-Jacobian product for the FFT function.</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>Executes the FFT operation inplace.</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+## Functions
+
+#### **fftn**
+
+```python
+fftn(x: Array, dims: List[Int] = List(), norm: String = String("backward")) -> Array
+```
+
+<details>
+<summary>Compute the n-dimensional FFT.</summary>
+
+###### Args
+
+- ``x``: ``Array``
+  The input array.
+
+- ``dims``: ``List[Int]`` (default: ``List()``)
+  The dimensions along which to compute the FFT.
+
+- ``norm``: ``String`` (default: ``String("backward")``)
+  The normalization mode.
+
+###### Returns
+- ``Array`` - The n-dimensional FFT of the input array.
+
+
+</details>
+

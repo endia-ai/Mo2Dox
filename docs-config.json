@@ -1,0 +1,11 @@
+{
+  "projectName": "My Mojo Project 🔥",
+  "githubRepo": "https://github.com/endia-ai/Endia",
+  "discordLink": "https://discord.gg/your-invite",
+  "projectDescription": "Comprehensive documentation for the project",
+  "projectVersion": "",
+  "banner": {
+    "show": false,
+    "content": "New documentation available!"
+  }
+}

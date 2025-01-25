@@ -1,0 +1,163 @@
+# avg_pool2d_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/spacial_ops/avg_pool2d_op.mojo)
+
+## Structs
+
+### Struct: AvgPool2d
+
+Namespace for 2D average pooling operations.
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Computes the shape of an array after a 2-dimensional average pooling operation with dilation.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  
+
+- ``args``: ``List[ArrayShape]``
+  
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array, kernel_size: Tuple[Int, Int], stride: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``kernel_size``: ``Tuple[Int, Int]``
+  
+
+- ``stride``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+- ``padding``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True))``)
+  
+
+- ``dilation``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+## Functions
+
+#### **avg_pool2d**
+
+```python
+avg_pool2d(arg0: Array, kernel_size: Tuple[Int, Int], stride: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True)), padding: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True)), dilation: Tuple[Int, Int] = Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))) -> Array
+```
+
+<details>
+<summary>Applies a 2D average pooling operation over an input array.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``kernel_size``: ``Tuple[Int, Int]``
+  The size of the kernel (height, width).
+
+- ``stride``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  The stride of the pooling operation. Defaults to (1, 1).
+
+- ``padding``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({0}), store_to_mem({0})>, True))``)
+  The padding to apply to the input. Defaults to (0, 0).
+
+- ``dilation``: ``Tuple[Int, Int]`` (default: ``Tuple(VariadicPack(<store_to_mem({1}), store_to_mem({1})>, True))``)
+  The dilation to apply to the input. Defaults to (1, 1).
+
+###### Returns
+- ``Array`` - Array: The output array.
+
+
+</details>
+

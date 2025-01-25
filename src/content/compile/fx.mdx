@@ -1,0 +1,455 @@
+# fx
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/compile/fx.mojo)
+
+## Structs
+
+### Struct: FxSubgraph
+
+FxSubgraph represents a functionally pure subgraph within a larger computation graph. It facilitates optimization and efficient execution of subgraphs by caching and reusing optimized computations.
+
+
+
+#### Fields
+
+- ``traversing_arrays``: ``List[Array]``
+  
+
+  
+
+- ``inputs``: ``List[Array]``
+  
+
+  
+
+- ``outputs``: ``List[Array]``
+  
+
+  
+
+- ``max_model``: ``List[ArcPointer[Model]]``
+  
+
+  
+
+- ``compile_with_MAX``: ``Bool``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, compile_with_MAX: Bool, traversing_arrays: List[Array] = List())
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``compile_with_MAX``: ``Bool``
+  
+
+- ``traversing_arrays``: ``List[Array]`` (default: ``List()``)
+  
+
+
+</details>
+
+```python
+__copyinit__(out self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__moveinit__(out self, owned other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+append(mut self, arr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``arr``: ``Array``
+  
+
+
+</details>
+
+```python
+setup_inputs_and_outputs(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+execute(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+print(self)
+```
+
+<details>
+<summary>Print the subgraph in a human readable table like format. It will show the flow of the computation from the top to the bottom, and also will show the direct dependencies (args) and other metadata such as the shape, stride, storage_offset and the requires_grad flag.</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+IR(self) -> String
+```
+
+<details>
+<summary>Get an IR like code representation of the subgraph. As of right perf_counter this has perf_counter real functionality, but eventually this IR string should become a valid MLIR code representation of the subgraph, which can be compiled and optimized by the MLIR.</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``String`` - 
+
+
+</details>
+
+### Struct: FxGraphNode
+
+FxGraphNode is a lightweight dual representation of an Array (or Node) within a traced function. It serves as a bookkeeping structure to facilitate tracing, caching, and optimization of computation graphs.
+
+
+
+#### Fields
+
+- ``array_in_graph``: ``Array``
+  
+
+  
+
+- ``name``: ``String``
+  
+
+  
+
+- ``branch_to_idx``: ``Int``
+  
+
+  
+
+- ``is_breakpoint``: ``Bool``
+  
+
+  
+
+- ``dependencies``: ``Int``
+  
+
+  
+
+- ``sub_graph``: ``List[ArcPointer[FxSubgraph]]``
+  
+
+  
+
+- ``tmp_id_in_subgraph``: ``Int``
+  
+
+  
+
+- ``jvp_derivatives``: ``List[Array]``
+  
+
+  
+
+- ``is_computed``: ``Bool``
+  
+
+  
+
+- ``id``: ``Int``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, name: String, branch_to_idx: Int, array_in_graph: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``name``: ``String``
+  
+
+- ``branch_to_idx``: ``Int``
+  
+
+- ``array_in_graph``: ``Array``
+  
+
+
+</details>
+
+```python
+print(self, storage_offset: String = String(""))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``storage_offset``: ``String`` (default: ``String("")``)
+  
+
+
+</details>
+
+```python
+subgraph(self) -> FxSubgraph
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``FxSubgraph`` - 
+
+
+</details>
+
+### Struct: FxGraph
+
+FxGraph is a data structure that holds the traced operations and computation graph of a function. It facilitates Just-In-Time (JIT) compilation, optimization, and caching of subgraphs within the computation graph.
+
+
+
+#### Fields
+
+- ``trace``: ``List[FxGraphNode]``
+  
+
+  
+
+- ``curr_idx``: ``Int``
+  
+
+  
+
+- ``postponed_outputs``: ``List[Int]``
+  
+
+  
+
+- ``compile_with_MAX``: ``Bool``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, compile_with_MAX: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``compile_with_MAX``: ``Bool``
+  
+
+
+</details>
+
+```python
+op_array(mut self, mut arr: Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``arr``: ``Array``
+  
+
+
+</details>
+
+```python
+reset_data_and_shapes_to_uncomputed(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+setup_grads(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+zero_data(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+subgraph(mut self, compile_with_MAX: Bool) -> ArcPointer[FxSubgraph]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``compile_with_MAX``: ``Bool``
+  
+
+###### Returns
+- ``ArcPointer[FxSubgraph]`` - 
+
+
+</details>
+
+## Functions
+
+#### **top_order_subgraph_rec**
+
+```python
+top_order_subgraph_rec(mut curr: Array, mut trace: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``trace``: ``List[Array]``
+  
+
+
+</details>
+

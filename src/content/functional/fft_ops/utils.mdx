@@ -1,0 +1,252 @@
+# utils
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/fft_ops/utils.mojo)
+
+## Structs
+
+## Functions
+
+#### **reverse_bits_simd**
+
+```python
+reverse_bits_simd(x: SIMD[uint32, nelts[::DType]()]) -> SIMD[uint32, nelts[::DType]()]
+```
+
+<details>
+<summary>Reverse the bits of a 32-bit integer.</summary>
+
+###### Args
+
+- ``x``: ``SIMD[uint32, nelts[::DType]()]``
+  
+
+###### Returns
+- ``SIMD[uint32, nelts[::DType]()]`` - 
+
+
+</details>
+
+#### **bit_reversal**
+
+```python
+bit_reversal(n: Int, reordered_arr_data: UnsafePointer[SIMD[uint32, 1]])
+```
+
+<details>
+<summary>Generate a bit reversal permutation for integers from 0 to n-1. Works for any positive integer n.</summary>
+
+###### Args
+
+- ``n``: ``Int``
+  
+
+- ``reordered_arr_data``: ``UnsafePointer[SIMD[uint32, 1]]``
+  
+
+
+</details>
+
+#### **copy_complex_and_cast**
+
+```python
+copy_complex_and_cast[dst_type: DType, src_type: DType](dst: UnsafePointer[SIMD[dst_type, 1]], src: UnsafePointer[SIMD[src_type, 1]], size: Int, conjugate_and_divide: Bool = False, divisor: SIMD[dst_type, 1] = SIMD(1))
+```
+
+<details>
+<summary>Copy complex data from one buffer to another and cast the data to a different type. Optionally conjugate and divide by a scalar (usefule for inverse FFT).</summary>
+
+###### Args
+
+- ``dst``: ``UnsafePointer[SIMD[dst_type, 1]]``
+  
+
+- ``src``: ``UnsafePointer[SIMD[src_type, 1]]``
+  
+
+- ``size``: ``Int``
+  
+
+- ``conjugate_and_divide``: ``Bool`` (default: ``False``)
+  
+
+- ``divisor``: ``SIMD[dst_type, 1]`` (default: ``SIMD(1)``)
+  
+
+
+</details>
+
+#### **get_workload**
+
+```python
+get_workload(n: Int, divisions: Int, num_workers: Int) -> Int
+```
+
+<details>
+<summary>Calculate the workload size for each worker.</summary>
+
+###### Args
+
+- ``n``: ``Int``
+  
+
+- ``divisions``: ``Int``
+  
+
+- ``num_workers``: ``Int``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+#### **list_swap**
+
+```python
+list_swap(arg: List[Int], i: Int, j: Int) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``List[Int]``
+  
+
+- ``i``: ``Int``
+  
+
+- ``j``: ``Int``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+#### **determine_num_workers**
+
+```python
+determine_num_workers(size: Int) -> Int
+```
+
+<details>
+<summary>Determine the number of workers to use for parallelization.</summary>
+
+###### Args
+
+- ``size``: ``Int``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+#### **fft_op_array**
+
+```python
+fft_op_array(arg0: Array, name: String, fwd: fn(mut Array, List[Array]) raises -> None, jvp: fn(List[Array], List[Array]) raises -> Array, vjp: fn(List[Array], Array, Array) raises -> List[Array], dims: List[Int], norm: String) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``name``: ``String``
+  
+
+- ``fwd``: ``fn(mut Array, List[Array]) raises -> None``
+  
+
+- ``jvp``: ``fn(List[Array], List[Array]) raises -> Array``
+  
+
+- ``vjp``: ``fn(List[Array], Array, Array) raises -> List[Array]``
+  
+
+- ``dims``: ``List[Int]``
+  
+
+- ``norm``: ``String``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **encode_fft_params**
+
+```python
+encode_fft_params(dims: List[Int], norm: String) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``dims``: ``List[Int]``
+  
+
+- ``norm``: ``String``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+#### **get_dims_from_encoded_params**
+
+```python
+get_dims_from_encoded_params(params: List[Int]) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``params``: ``List[Int]``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+#### **get_norm_from_encoded_params**
+
+```python
+get_norm_from_encoded_params(params: List[Int]) -> String
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``params``: ``List[Int]``
+  
+
+###### Returns
+- ``String`` - 
+
+
+</details>
+

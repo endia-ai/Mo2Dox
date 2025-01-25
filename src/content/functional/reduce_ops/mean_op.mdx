@@ -1,0 +1,48 @@
+# mean_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/reduce_ops/mean_op.mojo)
+
+## Structs
+
+## Functions
+
+#### **mean**
+
+```python
+mean(arg0: Array, axes: List[Int], keepdims: Bool = False) -> Array
+```
+
+<details>
+<summary>Computes the mean of the input array along the specified axes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axes``: ``List[Int]``
+  The axes along which to compute the mean.
+
+- ``keepdims``: ``Bool`` (default: ``False``)
+  If True, the reduced axes are retained in the output array.
+
+###### Returns
+- ``Array`` - An array containing the mean of the input array along the specified axes.
+
+**Examples:**
+```python
+a = Array([[1, 2], [3, 4]])
+result = mean(a, List(0))
+print(result)
+```
+
+**Note:**
+This function supports:
+- Automatic differentiation (forward and reverse modes).
+- Complex valued arguments.
+
+
+</details>
+

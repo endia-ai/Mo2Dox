@@ -1,0 +1,42 @@
+# prod_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/reduce_ops/prod_op.mojo)
+
+## Structs
+
+## Functions
+
+#### **prod**
+
+```python
+prod(arg0: Array) -> Array
+```
+
+<details>
+<summary>Computes the prod of the input array along all axes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+###### Returns
+- ``Array`` - An array containing the prod of the input array along all axes.
+
+**Examples:**
+```python
+ a = Array([[1, 2], [3, 4]])
+ result = prod(a)
+ print(result)
+```
+
+**Note:**
+This function supports:
+- Automatic differentiation (forward and reverse modes).
+- Complex valued arguments.
+
+
+</details>
+

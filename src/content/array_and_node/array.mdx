@@ -1,0 +1,2713 @@
+# array
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/array_and_node/array.mojo)
+
+## Structs
+
+### Struct: Array
+
+Array is the primary data structure in the autograd engine. It serves as a wrapper around the Node struct, which encapsulates the array's data, shape, gradients, and other metadata.
+
+
+
+#### Fields
+
+- ``node``: ``ArcPointer[Node]``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, shape: List[Int], requires_grad: Bool = False, is_complex: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``shape``: ``List[Int]``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+- ``is_complex``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+__init__(out self, array_shape: ArrayShape, is_view: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``array_shape``: ``ArrayShape``
+  
+
+- ``is_view``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+__init__(out self, node: ArcPointer[Node])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``node``: ``ArcPointer[Node]``
+  
+
+
+</details>
+
+```python
+__init__(out self, input_string: String, requires_grad: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``input_string``: ``String``
+  
+
+- ``requires_grad``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+__copyinit__(out self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__moveinit__(out self, owned other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__getitem__(self, *slices: Slice) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``*slices``: ``Slice``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__setitem__(mut self, *slices: Slice, *, value: Variant[SIMD[float32, 1], Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``*slices``: ``Slice``
+  
+
+- ``value``: ``Variant[SIMD[float32, 1], Array]``
+  
+
+
+</details>
+
+```python
+__neg__(self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__lt__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__lt__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__le__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__le__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__eq__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__eq__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__ne__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__ne__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__gt__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__gt__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__ge__(self, other: Self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__ge__(self, other: SIMD[float32, 1]) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+__add__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__add__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__sub__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__sub__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__mul__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__mul__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__matmul__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__truediv__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__truediv__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__pow__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__pow__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__radd__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__radd__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rsub__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rsub__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rmul__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rmul__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rmatmul__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rtruediv__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rtruediv__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rpow__(self, other: Self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__rpow__(self, other: SIMD[float32, 1]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+__iadd__(mut self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__iadd__(mut self, other: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+```python
+__isub__(mut self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__isub__(mut self, other: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+```python
+__imul__(mut self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__imul__(mut self, other: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+```python
+__itruediv__(mut self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__itruediv__(mut self, other: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+```python
+__ipow__(mut self, other: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``Self``
+  
+
+
+</details>
+
+```python
+__ipow__(mut self, other: SIMD[float32, 1])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``other``: ``SIMD[float32, 1]``
+  
+
+
+</details>
+
+```python
+id(self) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+id_(mut self, id: Int)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``id``: ``Int``
+  
+
+
+</details>
+
+```python
+array_shape(self) -> ArrayShape
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``ArrayShape`` - 
+
+
+</details>
+
+```python
+array_shape_(mut self, shape: ArrayShape)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``shape``: ``ArrayShape``
+  
+
+
+</details>
+
+```python
+is_computed(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_computed_(mut self, is_computed: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``is_computed``: ``Bool``
+  
+
+
+</details>
+
+```python
+is_graph_node_computed(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_graph_node_computed_(mut self, is_computed: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``is_computed``: ``Bool``
+  
+
+
+</details>
+
+```python
+postpone_as_grpah_output(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+args(self) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+args_(mut self, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+clear_args(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+remove_grad(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+kwargs(self) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+kwargs_(mut self, kwargs: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``kwargs``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+id_in_graph_(mut self, id_in_graph: Int)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``id_in_graph``: ``Int``
+  
+
+
+</details>
+
+```python
+id_in_graph(self) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+graph(self) -> ArcPointer[FxGraph]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``ArcPointer[FxGraph]`` - 
+
+
+</details>
+
+```python
+data_(mut self, owned data_ptr: UnsafePointer[SIMD[float32, 1]])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``data_ptr``: ``UnsafePointer[SIMD[float32, 1]]``
+  
+
+
+</details>
+
+```python
+graph_(mut self, graph: ArcPointer[FxGraph])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``graph``: ``ArcPointer[FxGraph]``
+  
+
+
+</details>
+
+```python
+has_fxgraph(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_breakpoint(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_breakpoint_(mut self, is_breakpoint: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``is_breakpoint``: ``Bool``
+  
+
+
+</details>
+
+```python
+item(self, idx: Int) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+setup_array_shape(mut self, array_shape: ArrayShape)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``array_shape``: ``ArrayShape``
+  
+
+
+</details>
+
+```python
+uew(self) -> List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]`` - 
+
+
+</details>
+
+```python
+bew(self) -> List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]]`` - 
+
+
+</details>
+
+```python
+inplace_infos(self) -> List[InplaceInfo]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[InplaceInfo]`` - 
+
+
+</details>
+
+```python
+append_arg(mut self, arg: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``arg``: ``Self``
+  
+
+
+</details>
+
+```python
+append_inplace_info(mut self, inplace_info: InplaceInfo)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``inplace_info``: ``InplaceInfo``
+  
+
+
+</details>
+
+```python
+append_uew(mut self, uew: fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``uew``: ``fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]``
+  
+
+
+</details>
+
+```python
+append_bew(mut self, bew: fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``bew``: ``fn(SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]) -> Tuple[SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)], SIMD[float32, nelts[::DType]().__mul__(2).__floordiv__(2)]]``
+  
+
+
+</details>
+
+```python
+shape(self) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+```python
+shape_(mut self, shape: List[Int])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``shape``: ``List[Int]``
+  
+
+
+</details>
+
+```python
+stride_(mut self, stride: List[Int])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``stride``: ``List[Int]``
+  
+
+
+</details>
+
+```python
+stride(self) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+```python
+storage_offset(self) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+storage_offset_(mut self, storage_offset: Int)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``storage_offset``: ``Int``
+  
+
+
+</details>
+
+```python
+ndim(self) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+size(self) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+is_view(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_view_(mut self, is_view: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``is_view``: ``Bool``
+  
+
+
+</details>
+
+```python
+base_(mut self, base: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``base``: ``Self``
+  
+
+
+</details>
+
+```python
+base(self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+requires_grad(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+requires_grad_(mut self, requires_grad: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``requires_grad``: ``Bool``
+  
+
+
+</details>
+
+```python
+meta_data(self) -> List[Int]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Int]`` - 
+
+
+</details>
+
+```python
+meta_data_(mut self, meta_data: List[Int])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``meta_data``: ``List[Int]``
+  
+
+
+</details>
+
+```python
+has_real(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+has_real_(mut self, has_real: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``has_real``: ``Bool``
+  
+
+
+</details>
+
+```python
+has_imag(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+has_imag_(mut self, has_imag: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``has_imag``: ``Bool``
+  
+
+
+</details>
+
+```python
+is_complex(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+is_complex_(mut self, is_complex: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``is_complex``: ``Bool``
+  
+
+
+</details>
+
+```python
+data(self) -> UnsafePointer[SIMD[float32, 1]]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``UnsafePointer[SIMD[float32, 1]]`` - 
+
+
+</details>
+
+```python
+real_idx(self, idx: Int) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+imag_idx(self, idx: Int) -> Int
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``Int`` - 
+
+
+</details>
+
+```python
+load[width: Int = 1](self, idx: Int) -> SIMD[float32, width]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``SIMD[float32, width]`` - 
+
+
+</details>
+
+```python
+store[width: Int = 1](mut self, idx: Int, data: SIMD[float32, width])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+- ``data``: ``SIMD[float32, width]``
+  
+
+
+</details>
+
+```python
+load_imag[width: Int = 1](self, idx: Int) -> SIMD[float32, width]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``SIMD[float32, width]`` - 
+
+
+</details>
+
+```python
+store_imag[width: Int = 1](mut self, idx: Int, data: SIMD[float32, width])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+- ``data``: ``SIMD[float32, width]``
+  
+
+
+</details>
+
+```python
+load_complex[width: Int = 1](self, idx: Int) -> Tuple[SIMD[float32, 2.__mul__(width).__floordiv__(2)], SIMD[float32, 2.__mul__(width).__floordiv__(2)]]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+###### Returns
+- ``Tuple[SIMD[float32, 2.__mul__(width).__floordiv__(2)], SIMD[float32, 2.__mul__(width).__floordiv__(2)]]`` - 
+
+
+</details>
+
+```python
+store_complex[width: Int = 1](mut self, idx: Int, real: SIMD[float32, width], imag: SIMD[float32, width])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``idx``: ``Int``
+  
+
+- ``real``: ``SIMD[float32, width]``
+  
+
+- ``imag``: ``SIMD[float32, width]``
+  
+
+
+</details>
+
+```python
+compute_jvp(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+set_compute_jvp(mut self, compute_jvp: Bool)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``compute_jvp``: ``Bool``
+  
+
+
+</details>
+
+```python
+set_fwd(mut self, fwd: fn(mut Array, List[Array]) raises -> None)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``fwd``: ``fn(mut Array, List[Array]) raises -> None``
+  
+
+
+</details>
+
+```python
+fwd(self) -> fn(mut Array, List[Array]) raises -> None
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``fn(mut Array, List[Array]) raises -> None`` - 
+
+
+</details>
+
+```python
+jvp_(mut self, jvp: fn(List[Array], List[Array]) raises -> Array)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``jvp``: ``fn(List[Array], List[Array]) raises -> Array``
+  
+
+
+</details>
+
+```python
+jvp(self) -> fn(List[Array], List[Array]) raises -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``fn(List[Array], List[Array]) raises -> Array`` - 
+
+
+</details>
+
+```python
+vjp_(mut self, vjp: fn(List[Array], Array, Array) raises -> List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``vjp``: ``fn(List[Array], Array, Array) raises -> List[Array]``
+  
+
+
+</details>
+
+```python
+vjp(self) -> fn(List[Array], Array, Array) raises -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``fn(List[Array], Array, Array) raises -> List[Array]`` - 
+
+
+</details>
+
+```python
+has_grad(self) -> Bool
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Bool`` - 
+
+
+</details>
+
+```python
+grad_(mut self, grad: Self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``grad``: ``Self``
+  
+
+
+</details>
+
+```python
+grad(self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+set_name(mut self, name: String)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``name``: ``String``
+  
+
+
+</details>
+
+```python
+name(self) -> String
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``String`` - 
+
+
+</details>
+
+```python
+execute_fwd(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+__str__(self) -> String
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``String`` - 
+
+
+</details>
+
+```python
+write_to[W: Writer](self, mut writer: W)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``writer``: ``W``
+  
+
+
+</details>
+
+```python
+execute_fwds(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+graph_dual(self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+backward(self, create_graph: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``create_graph``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+zero_grad(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+```python
+T(self) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+```python
+reshape(self, shape: List[Int]) -> Self
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``shape``: ``List[Int]``
+  
+
+###### Returns
+- ``Self`` - 
+
+
+</details>
+
+## Functions
+
+#### **default_fwd**
+
+```python
+default_fwd(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+#### **default_vjp**
+
+```python
+default_vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+#### **default_jvp**
+
+```python
+default_jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+

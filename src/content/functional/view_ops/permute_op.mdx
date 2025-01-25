@@ -1,0 +1,420 @@
+# permute_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/view_ops/permute_op.mojo)
+
+## Structs
+
+### Struct: Permute
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Permutes the dimensions of an array shape given a list of axes.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  The ArrayShape to store the result of the computation.
+
+- ``args``: ``List[ArrayShape]``
+  The ArrayShape to permute, and the list of axes to permute.
+
+#### Constraints:
+- The number of axes in the list must not exceed the number of dimensions of the ArrayShape.
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>Permutes the input array based on the given axis and stores the result in the current array (curr). The first agument is set as the base of the current array.</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  The current array, must be mutable.
+
+- ``args``: ``List[Array]``
+  The input array and the axis to permute.
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>Compute vector-Jacobian product for array permutation.</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  Primal input arrays.
+
+- ``grad``: ``Array``
+  Gradient of the output with respect to some scalar function.
+
+- ``out``: ``Array``
+  The output of the forward pass.
+
+###### Returns
+- ``List[Array]`` - List[Array]: Gradients with respect to each input.
+
+**Note:**
+Implements reverse-mode automatic differentiation for permutation.
+Returns arrays with shape zero for inputs that do not require gradients.
+
+#### See Also:
+permute_jvp: Forward-mode autodiff for permutation.
+
+
+</details>
+
+```python
+fwd(arg0: Array, axis: ArrayShape) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with its dimensions permuted based on the given axis.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis``: ``ArrayShape``
+  The axis to permute.
+
+###### Returns
+- ``Array`` - A view of the input array with its dimensions permuted.
+
+
+</details>
+
+### Struct: InvPermute
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```
+
+<details>
+<summary>Permutes the dimensions of an array shape given a list of axes, in an inverse manner to the permute_shape function.</summary>
+
+###### Args
+
+- ``curr``: ``ArrayShape``
+  The ArrayShape to store the result of the computation.
+
+- ``args``: ``List[ArrayShape]``
+  The ArrayShape to permute, and the list of axes to permute.
+
+#### Constraints:
+- The number of axes in the list must not exceed the number of dimensions of the ArrayShape.
+
+
+</details>
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>Permutes the input array based on the given axis and stores the result in the current array (curr). The first agument is set as the base of the current array.</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  The current array, must be mutable.
+
+- ``args``: ``List[Array]``
+  The input array and the axis to permute.
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>Compute vector-Jacobian product for array permutation.</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  Primal input arrays.
+
+- ``grad``: ``Array``
+  Gradient of the output with respect to some scalar function.
+
+- ``out``: ``Array``
+  The output of the forward pass.
+
+###### Returns
+- ``List[Array]`` - List[Array]: Gradients with respect to each input.
+
+**Note:**
+Implements reverse-mode automatic differentiation for permutation.
+Returns arrays with shape zero for inputs that do not require gradients.
+
+#### See Also:
+permute_inv_jvp: Forward-mode autodiff for permutation.
+
+
+</details>
+
+```python
+fwd(arg0: Array, axis: ArrayShape) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with its dimensions permuted based on the given axis.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis``: ``ArrayShape``
+  The axis to permute.
+
+###### Returns
+- ``Array`` - A view of the input array with its dimensions permuted.
+
+**Examples:**
+```python
+a = Array([[1, 2], [3, 4]])
+result = permute_inv(a, axis=List(-1,-2))
+print(result)
+```
+
+**This function supports**
+- Automatic differentiation (forward and reverse modes).
+- Complex valued arguments.
+
+
+</details>
+
+## Functions
+
+#### **permute**
+
+```python
+permute(arg0: Array, axis: ArrayShape) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with its dimensions permuted based on the given axis.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis``: ``ArrayShape``
+  The axis to permute.
+
+###### Returns
+- ``Array`` - A view of the input array with its dimensions permuted.
+
+**Examples:**
+```python
+ a = Array([[1, 2], [3, 4]])
+ result = permute(a, axis=List(-1,-2))
+ print(result)
+```
+
+**This function supports**
+- Automatic differentiation (forward and reverse modes).
+- Complex valued arguments.
+
+
+</details>
+
+#### **transpose**
+
+```python
+transpose(arg0: Array, axis1: Int, axis2: Int) -> Array
+```
+
+<details>
+<summary>Transposes the input array based on the given axes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis1``: ``Int``
+  The first axis to transpose.
+
+- ``axis2``: ``Int``
+  The second axis to transpose.
+
+###### Returns
+- ``Array`` - The transposed array.
+
+**Note:**
+This function is a wrapper around the permute function with the given axes.
+
+
+</details>
+
+#### **swapaxes**
+
+```python
+swapaxes(arg0: Array, axis1: Int, axis2: Int) -> Array
+```
+
+<details>
+<summary>Swaps the input array's axes based on the given axes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis1``: ``Int``
+  The first axis to swap.
+
+- ``axis2``: ``Int``
+  The second axis to swap.
+
+###### Returns
+- ``Array`` - The array with the axes swapped.
+
+**Note:**
+This function is a wrapper around the transpose function with the given axes.
+
+
+</details>
+
+#### **swapdims**
+
+```python
+swapdims(arg0: Array, axis1: Int, axis2: Int) -> Array
+```
+
+<details>
+<summary>Swaps the input array's dimensions based on the given axes.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis1``: ``Int``
+  The first axis to swap.
+
+- ``axis2``: ``Int``
+  The second axis to swap.
+
+###### Returns
+- ``Array`` - The array with the dimensions swapped.
+
+**Note:**
+This function is a wrapper around the transpose function with the given axes.
+
+
+</details>
+
+#### **permute_inv**
+
+```python
+permute_inv(arg0: Array, axis: ArrayShape) -> Array
+```
+
+<details>
+<summary>Creates a view of the input array with its dimensions permuted based on the given axis.</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  The input array.
+
+- ``axis``: ``ArrayShape``
+  The axis to permute.
+
+###### Returns
+- ``Array`` - A view of the input array with its dimensions permuted.
+
+**Examples:**
+```python
+a = Array([[1, 2], [3, 4]])
+result = permute_inv(a, axis=List(-1,-2))
+print(result)
+```
+
+**This function supports**
+- Automatic differentiation (forward and reverse modes).
+- Complex valued arguments.
+
+
+</details>
+

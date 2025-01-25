@@ -1,0 +1,161 @@
+# fft_cooley_tukey
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/fft_ops/fft_cooley_tukey.mojo)
+
+## Structs
+
+## Functions
+
+#### **cooley_tukey_non_recursive**
+
+```python
+cooley_tukey_non_recursive(n: Int, max_depth: Int, res_data: UnsafePointer[SIMD[float64, 1]])
+```
+
+<details>
+<summary>Non-recursive Cooley-Tukey FFT splitting of the input data with a limited depth.</summary>
+
+###### Args
+
+- ``n``: ``Int``
+  
+
+- ``max_depth``: ``Int``
+  
+
+- ``res_data``: ``UnsafePointer[SIMD[float64, 1]]``
+  
+
+
+</details>
+
+#### **cooley_tukey_sequencial_recombine**
+
+```python
+cooley_tukey_sequencial_recombine(n: Int, start_depth: Int, res_data: UnsafePointer[SIMD[float64, 1]])
+```
+
+<details>
+<summary>Non-recursive Cooley-Tukey FFT recombination of the subsolutions. The recombination starts at a given depth.</summary>
+
+###### Args
+
+- ``n``: ``Int``
+  
+
+- ``start_depth``: ``Int``
+  
+
+- ``res_data``: ``UnsafePointer[SIMD[float64, 1]]``
+  
+
+
+</details>
+
+#### **fft_cooley_tukey_inplace_bit_reversal**
+
+```python
+fft_cooley_tukey_inplace_bit_reversal(workload: Int, data: UnsafePointer[SIMD[float64, 1]], reordered_arr_data: UnsafePointer[SIMD[uint32, 1]], dims: List[Int] = List())
+```
+
+<details>
+<summary>Iterative fast Fourier transform using the Cooley-Tukey algorithm with bit-reversal permutation inplace.</summary>
+
+###### Args
+
+- ``workload``: ``Int``
+  
+
+- ``data``: ``UnsafePointer[SIMD[float64, 1]]``
+  
+
+- ``reordered_arr_data``: ``UnsafePointer[SIMD[uint32, 1]]``
+  
+
+- ``dims``: ``List[Int]`` (default: ``List()``)
+  
+
+
+</details>
+
+#### **fft_cooley_tukey_parallel**
+
+```python
+fft_cooley_tukey_parallel(input: Array, dims: List[Int], norm: String, out: Optional[Array] = Optional(None), conj_input: Bool = False, conj_output: Bool = False, input_divisor: SIMD[float64, 1] = SIMD(#kgen.float_literal<1|1>), output_divisor: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|1>)) -> Array
+```
+
+<details>
+<summary>Compute the n-dimensional FFT using a hybrid version of the Cooley-Tukey algorithm.</summary>
+
+###### Args
+
+- ``input``: ``Array``
+  The input array.
+
+- ``dims``: ``List[Int]``
+  The dimensions along which to compute the FFT.
+
+- ``norm``: ``String``
+  The normalization mode.
+
+- ``out``: ``Optional[Array]`` (default: ``Optional(None)``)
+  The output array (optional).
+
+- ``conj_input``: ``Bool`` (default: ``False``)
+  Whether to conjugate the input data.
+
+- ``conj_output``: ``Bool`` (default: ``False``)
+  Whether to conjugate the output data.
+
+- ``input_divisor``: ``SIMD[float64, 1]`` (default: ``SIMD(#kgen.float_literal<1|1>)``)
+  The divisor for the input data.
+
+- ``output_divisor``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|1>)``)
+  The divisor for the output data.
+
+###### Returns
+- ``Array`` - The n-dimensional FFT/IFFT of the input array.
+
+
+</details>
+
+#### **fft_cooley_tukey_parallel_inplace**
+
+```python
+fft_cooley_tukey_parallel_inplace(input: Array, mut out: Array, dims: List[Int], norm: String, conj_input: Bool = False, conj_output: Bool = False, input_divisor: SIMD[float64, 1] = SIMD(#kgen.float_literal<1|1>), output_divisor: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|1>))
+```
+
+<details>
+<summary>Compute the n-dimensional FFT inplace using a hybrid version of the Cooley-Tukey algorithm.</summary>
+
+###### Args
+
+- ``input``: ``Array``
+  The input array.
+
+- ``out``: ``Array``
+  The output array.
+
+- ``dims``: ``List[Int]``
+  The dimensions along which to compute the FFT.
+
+- ``norm``: ``String``
+  The normalization mode.
+
+- ``conj_input``: ``Bool`` (default: ``False``)
+  Whether to conjugate the input data.
+
+- ``conj_output``: ``Bool`` (default: ``False``)
+  Whether to conjugate the output data.
+
+- ``input_divisor``: ``SIMD[float64, 1]`` (default: ``SIMD(#kgen.float_literal<1|1>)``)
+  The divisor for the input data.
+
+- ``output_divisor``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|1>)``)
+  The divisor for the output data.
+
+
+</details>
+

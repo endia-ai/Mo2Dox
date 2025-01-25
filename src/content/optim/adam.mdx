@@ -1,0 +1,105 @@
+# adam
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/optim/adam.mojo)
+
+## Structs
+
+### Struct: Adam
+
+
+
+
+
+#### Fields
+
+- ``params``: ``List[Array]``
+  
+
+  
+
+- ``lr``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``beta1``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``beta2``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``eps``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``t``: ``SIMD[float32, 1]``
+  
+
+  
+
+- ``m``: ``List[Array]``
+  
+
+  
+
+- ``v``: ``List[Array]``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, params: List[Array], lr: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|1000>), beta1: SIMD[float32, 1] = SIMD(#kgen.float_literal<9|10>), beta2: SIMD[float32, 1] = SIMD(#kgen.float_literal<999|1000>), eps: SIMD[float32, 1] = SIMD(#kgen.float_literal<1|100000000>))
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``params``: ``List[Array]``
+  
+
+- ``lr``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|1000>)``)
+  
+
+- ``beta1``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<9|10>)``)
+  
+
+- ``beta2``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<999|1000>)``)
+  
+
+- ``eps``: ``SIMD[float32, 1]`` (default: ``SIMD(#kgen.float_literal<1|100000000>)``)
+  
+
+
+</details>
+
+```python
+step(mut self)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+
+</details>
+
+## Functions
+

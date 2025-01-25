@@ -1,0 +1,127 @@
+# flip_op
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/functional/spacial_ops/flip_op.mojo)
+
+## Structs
+
+### Struct: Flip
+
+
+
+
+
+#### Fields
+
+#### Methods
+
+```python
+__call__(mut curr: Array, args: List[Array])
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+- ``args``: ``List[Array]``
+  
+
+
+</details>
+
+```python
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``tangents``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``primals``: ``List[Array]``
+  
+
+- ``grad``: ``Array``
+  
+
+- ``out``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+fwd(arg0: Array, dims: List[Int]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``dims``: ``List[Int]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+## Functions
+
+#### **flip**
+
+```python
+flip(arg0: Array, dims: List[Int] = List(-1)) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg0``: ``Array``
+  
+
+- ``dims``: ``List[Int]`` (default: ``List(-1)``)
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+

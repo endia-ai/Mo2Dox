@@ -1,0 +1,143 @@
+# mlp
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/nn/modules/mlp.mojo)
+
+## Structs
+
+### Struct: MLP
+
+
+
+
+
+#### Fields
+
+- ``weights``: ``List[Array]``
+  
+
+  
+
+- ``biases``: ``List[Array]``
+  
+
+  
+
+- ``hidden_dims``: ``List[Int]``
+  
+
+  
+
+- ``num_layers``: ``Int``
+  
+
+  
+
+- ``compute_backward``: ``Bool``
+  
+
+  
+
+#### Methods
+
+```python
+__init__(out self, hidden_dims: List[Int], compute_backward: Bool = False)
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``hidden_dims``: ``List[Int]``
+  
+
+- ``compute_backward``: ``Bool`` (default: ``False``)
+  
+
+
+</details>
+
+```python
+forward(self, x: Array) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+- ``x``: ``Array``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+```python
+params(self) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+```python
+__str__(self) -> String
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``self``: ``Self``
+  
+
+###### Returns
+- ``String`` - 
+
+
+</details>
+
+## Functions
+
+#### **mlp**
+
+```python
+mlp(args: List[Array]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``args``: ``List[Array]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+

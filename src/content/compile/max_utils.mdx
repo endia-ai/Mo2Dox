@@ -1,0 +1,174 @@
+# max_utils
+
+
+
+[View the code on GitHub](https://github.com/endia-ai/Endia/tree/nightly/endia/compile/max_utils.mojo)
+
+## Structs
+
+## Functions
+
+#### **tensor_to_array**
+
+```python
+tensor_to_array(owned src: Tensor[float32]) -> Array
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``src``: ``Tensor[float32]``
+  
+
+###### Returns
+- ``Array`` - 
+
+
+</details>
+
+#### **top_order**
+
+```python
+top_order(mut curr: Array) -> List[Array]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``curr``: ``Array``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
+#### **to_tensor**
+
+```python
+to_tensor(arg: Array) -> Tensor[float32]
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Array``
+  
+
+###### Returns
+- ``Tensor[float32]`` - 
+
+
+</details>
+
+#### **make_equal_rank**
+
+```python
+make_equal_rank(arg: Symbol, arg_shape: List[Int], comp_shape: List[Int]) -> Symbol
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``arg``: ``Symbol``
+  
+
+- ``arg_shape``: ``List[Int]``
+  
+
+- ``comp_shape``: ``List[Int]``
+  
+
+###### Returns
+- ``Symbol`` - 
+
+
+</details>
+
+#### **build_graph**
+
+```python
+build_graph(args: List[Array], outputs: List[Array], trace: List[Array]) -> Graph
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``args``: ``List[Array]``
+  
+
+- ``outputs``: ``List[Array]``
+  
+
+- ``trace``: ``List[Array]``
+  
+
+###### Returns
+- ``Graph`` - 
+
+
+</details>
+
+#### **build_model**
+
+```python
+build_model(args: List[Array], outputs: List[Array], trace: List[Array]) -> Model
+```
+
+<details>
+<summary>more details</summary>
+
+###### Args
+
+- ``args``: ``List[Array]``
+  
+
+- ``outputs``: ``List[Array]``
+  
+
+- ``trace``: ``List[Array]``
+  
+
+###### Returns
+- ``Model`` - 
+
+
+</details>
+
+#### **execute_model**
+
+```python
+execute_model(args: List[Array], outputs: List[Array], model: Model) -> List[Array]
+```
+
+<details>
+<summary>Execution of a model with MAX JIT compilation. No data copying, only temporary pointer borrowing for inputs and ownership stealing for outputs.</summary>
+
+###### Args
+
+- ``args``: ``List[Array]``
+  
+
+- ``outputs``: ``List[Array]``
+  
+
+- ``model``: ``Model``
+  
+
+###### Returns
+- ``List[Array]`` - 
+
+
+</details>
+
