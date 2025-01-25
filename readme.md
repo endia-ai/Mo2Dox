@@ -12,14 +12,12 @@ Transform your Mojo project's documentation into a professional documentation we
 
 ## Quick Start
 
+Clone the repository and set up the project
+
 ```bash
-# Clone the repository
-git clone https://github.com/endia-ai/mo2dox.git
-
-# Install dependencies
-npm install
-
-# Start development server
+git clone https://github.com/endia-ai/mo2dox.git && \
+cd mo2dox && \
+npm install && \
 npm run dev
 ```
 
