@@ -1,0 +1,183 @@
+
+
+
+
+# squeeze_op
+  
+[Source Code](https://github.com/endia-ai/Endia/tree/main/endia/functional/view_ops/squeeze_op.mojo)  
+  
+
+## Squeeze
+  
+  
+  
+
+### Parent Traits
+  
+
+- AnyType
+- DifferentiableViewOp
+- UnknownDestructibility
+  
+
+### Functions
+
+#### squeezable_axis
+
+
+```swift
+squeezable_axis(mut curr: ArrayShape, args: List[ArrayShape])
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Show more details.  
+</summary>  
+  
+#### Args:  
+
+* curr `ArrayShape`
+* args `List[ArrayShape]`
+  
+  
+</details>
+#### compute_shape
+
+
+```swift
+compute_shape(mut curr: ArrayShape, args: List[ArrayShape])
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Computes the shape of an array after squeezing. This removes all dimensions of size 1.  
+</summary>  
+  
+#### Args:  
+
+* curr `ArrayShape`: The ArrayShape to store the result of the computation.
+* args `List[ArrayShape]`: The ArrayShape to squeeze.
+  
+  
+</details>
+#### __call__
+
+
+```swift
+__call__(mut curr: Array, args: List[Array])
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Performs the forward pass for the squeeze operation. It sets the base of the argument to be the base of the current array and computes the shape of the current array via its dedicated ArraySahpe fwd fucntion.  
+</summary>  
+  
+#### Args:  
+
+* curr `Array`: The current array to store the result (modified in-place).
+* args `List[Array]`: The array on which the squeeze view is created.
+  
+  
+
+
+#### Note:
+The information of the shape computation is stored in the ArrayShape object of the curr array.  
+</details>
+#### jvp
+
+
+```swift
+jvp(primals: List[Array], tangents: List[Array]) -> Array
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Show more details.  
+</summary>  
+  
+#### Args:  
+
+* primals `List[Array]`
+* tangents `List[Array]`
+  
+#### Returns:  
+  
+Type: `Array`  
+  
+  
+</details>
+#### vjp
+
+
+```swift
+vjp(primals: List[Array], grad: Array, out: Array) -> List[Array]
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Computes the vector-Jacobian product for the squeeze operation.  
+</summary>  
+  
+#### Args:  
+
+* primals `List[Array]`: A list containing the primal input array.
+* grad `Array`: The gradient of the output with respect to some scalar function.
+* out `Array`: The output of the forward pass (unused in this function).
+  
+#### Returns:  
+  
+A list containing the gradient with respect to the input.  
+Type: `List[Array]`  
+  
+  
+
+
+#### Note:
+The vector-Jacobian product for squeeze is computed by unsqueezing the gradient along the axes that were squeezed.  
+</details>
+#### fwd
+
+
+```swift
+fwd(arg0: Array) -> Array
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Squeezes the input array by removing axes of length 1.  
+</summary>  
+  
+#### Args:  
+
+* arg0 `Array`: The input array.
+  
+#### Returns:  
+  
+The squeezed array.  
+Type: `Array`  
+  
+  
+</details>
+## squeeze
+
+
+```swift
+squeeze(arg0: Array) -> Array
+```  
+<details markdown="1" style="border: none; bg-color: none; box-shadow: none;">  
+<summary style="border: none; bg-color: none; box-shadow: none;">  
+  
+Squeezes the input array by removing axes of length 1.  
+</summary>  
+  
+#### Args:  
+
+* arg0 `Array`: The input array.
+  
+#### Returns:  
+  
+The squeezed array.  
+Type: `Array`  
+  
+  
+</details>

@@ -1,64 +1,50 @@
 # Mo2Dox ⚡
 
-Transform your Mojo project's documentation into a professional documentation website. This template, built on Next.js and Nextra.js, converts your Mojo project's documentation into a modern, searchable website using MDX (Markdown + JSX).
+Transform your Mojo project documentation into a professional website using either Material for MkDocs or Nextra documentation frameworks.
 
-## Features
+**Prerequisites:**  
+- A Mojo project
+- Documentation JSON generated using `mojo doc` command
 
-- 🚀 **Easy Setup**: Quick configuration and deployment process
-- 📄 **Automatic MDX**: Seamless conversion from Mojo documentation
-- 🎨 **Modern Design**: Clean, responsive interface for all devices
-- 🔍 **Smart Search**: Built-in search functionality for easy navigation
-- ⚡ **Static Generation**: Fast, optimized site performance
+## Get Started with either a Nextra or Material for MkDocs template
 
-## Quick Start
+### Option 1 - Nextra
+Nextra is a full-featured web documentation framework built with React and MDX (Markdown + JavaScript), offering advanced component integration and customization.
 
-Clone the repository and set up the project
-
+**Installation:**
 ```bash
-git clone https://github.com/endia-ai/mo2dox.git && \
-cd mo2dox && \
-npm install && \
+git clone https://github.com/endia-ai/Mo2Dox.git
+cd Mo2Dox/nextra
+npm install
 npm run dev
 ```
 
-## Documentation Generation
+**Preview:**
 
-1. **Generate your Mojo documentation JSON** and place it in the root directory. You can generate the documentation JSON using the following command:
+<p align="center">
+    <img src="assets/nextra_example.png" alt="Nextra example - The Endia Project" style="max-width: 800px; width: 100%;">
+</p>
 
-    ```bash
-    mojo doc <module-name> -o <docs-name>.json
-    ```
 
-    *Note: You must have a packable Mojo module in a Magic environment to generate the documentation JSON.*
+### Option 2 - Material for MkDocs
 
-2. **Edit `generate-mdx-config.json`** to customize your documentation. Here are the available configuration options:
+Material for MkDocs is a Python-based documentation framework focused on creating clean, markdown-driven documentation sites with minimal setup.
 
-    - `docs_json_source_type`: Specify "local" for local file or "remote" for URL source
-    - `docs_json_path`: Path to your documentation JSON file or URL
-    - `nextra_output_dir`: Output directory for generated files (keep as "src/content")
-    - `get_started_input_path`: Path to your README file that will serve as the landing page
-    - `github_base_url`: Base URL for GitHub repository branch references
-    - `projectName`: Name of your project to display in the documentation
-    - `githubRepo`: Optional GitHub repository URL
-    - `discordLink`: Optional Discord server invitation link
-    - `projectDescription`: Optional project description
-    - `projectVersion`: Optional version number (e.g., "v24.6")
-    - `banner`: Configure the announcement banner
-      - `show`: Boolean to toggle banner visibility
-      - `content`: Message to display in the banner
-
-3. **Generate MDX files**:
-
-    ```bash
-    node generate-mdx.js
-    ```
-
-If not already running, start the development server:
-
+**Installation:**
 ```bash
-npm run dev
+git clone https://github.com/endia-ai/Mo2Dox.git
+cd Mo2Dox/mkdocs
+pip install mkdocs mkdocs-material
+mkdocs serve
 ```
 
-## License
+**Preview:**
 
-MIT
+<p align="center">
+    <img src="assets/mkdocs_example.png" alt="Mkdocs example - The Endia Project" style="max-width: 800px; width: 100%;">
+</p>
+
+## Getting Started
+Select the implementation that aligns with your technology stack and requirements. Both options deliver feature-rich documentation sites with professional capabilities including search, navigation, and responsive design.
+
+License: MIT

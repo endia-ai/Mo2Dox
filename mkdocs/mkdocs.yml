@@ -1,0 +1,165 @@
+site_name: Epic Mojo Project 🔥
+site_description: Epic Mojo Project 🔥 API Documentation
+site_author: Epic Mojo Project 🔥
+repo_url: https://github.com/endia-ai/Endia
+nav:
+- Get Started: index.md
+- API:
+  - Array And Node:
+    - Array: API/array_and_node/array.md
+    - Node: API/array_and_node/node.md
+    - Utils: API/array_and_node/utils.md
+  - Autograd:
+    - Functional: API/autograd/functional.md
+  - Compile:
+    - Callable: API/compile/callable.md
+    - Functional: API/compile/functional.md
+    - Fx: API/compile/fx.md
+    - Max Utils: API/compile/max_utils.md
+  - Functional:
+    - Binary Ops:
+      - Add Op: API/functional/binary_ops/add_op.md
+      - Div Op: API/functional/binary_ops/div_op.md
+      - Matmul Op: API/functional/binary_ops/matmul_op.md
+      - Mul Op: API/functional/binary_ops/mul_op.md
+      - Pow Op: API/functional/binary_ops/pow_op.md
+      - Sub Op: API/functional/binary_ops/sub_op.md
+    - Comparison Ops:
+      - Equal Op: API/functional/comparison_ops/equal_op.md
+      - Greater Equal Op: API/functional/comparison_ops/greater_equal_op.md
+      - Greater Op: API/functional/comparison_ops/greater_op.md
+      - Less Equal Op: API/functional/comparison_ops/less_equal_op.md
+      - Less Op: API/functional/comparison_ops/less_op.md
+      - Not Equal Op: API/functional/comparison_ops/not_equal_op.md
+    - Fft Ops:
+      - Fft2 Op: API/functional/fft_ops/fft2_op.md
+      - Fft Cooley Tukey: API/functional/fft_ops/fft_cooley_tukey.md
+      - Fft Op: API/functional/fft_ops/fft_op.md
+      - Fftn Op: API/functional/fft_ops/fftn_op.md
+      - Ifft2 Op: API/functional/fft_ops/ifft2_op.md
+      - Ifft Op: API/functional/fft_ops/ifft_op.md
+      - Ifftn Op: API/functional/fft_ops/ifftn_op.md
+      - Utils: API/functional/fft_ops/utils.md
+    - Index Ops:
+      - Concat Op: API/functional/index_ops/concat_op.md
+    - Init Ops:
+      - Init Ops: API/functional/init_ops/init_ops.md
+    - Loss Ops:
+      - Mse Op: API/functional/loss_ops/mse_op.md
+    - Reduce Ops:
+      - Mean Op: API/functional/reduce_ops/mean_op.md
+      - Prod Op: API/functional/reduce_ops/prod_op.md
+      - Reduce Add Op: API/functional/reduce_ops/reduce_add_op.md
+      - Reduce Argmax Op: API/functional/reduce_ops/reduce_argmax_op.md
+      - Reduce Argmin Op: API/functional/reduce_ops/reduce_argmin_op.md
+      - Reduce Max Op: API/functional/reduce_ops/reduce_max_op.md
+      - Reduce Min Op: API/functional/reduce_ops/reduce_min_op.md
+      - Reduce Mul Op: API/functional/reduce_ops/reduce_mul_op.md
+      - Std Op: API/functional/reduce_ops/std_op.md
+      - Sum Op: API/functional/reduce_ops/sum_op.md
+      - Variance Op: API/functional/reduce_ops/variance_op.md
+    - Spacial Ops:
+      - Avg Pool1D Op: API/functional/spacial_ops/avg_pool1d_op.md
+      - Avg Pool2D Op: API/functional/spacial_ops/avg_pool2d_op.md
+      - Avg Pool3D Op: API/functional/spacial_ops/avg_pool3d_op.md
+      - Conv1D Op: API/functional/spacial_ops/conv1d_op.md
+      - Conv2D Op: API/functional/spacial_ops/conv2d_op.md
+      - Conv3D Op: API/functional/spacial_ops/conv3d_op.md
+      - Conv Transpose1D: API/functional/spacial_ops/conv_transpose1d.md
+      - Conv Transpose2D: API/functional/spacial_ops/conv_transpose2d.md
+      - Conv Transpose3D: API/functional/spacial_ops/conv_transpose3d.md
+      - Flip Op: API/functional/spacial_ops/flip_op.md
+      - Max Pool1D Op: API/functional/spacial_ops/max_pool1d_op.md
+      - Max Pool2D Op: API/functional/spacial_ops/max_pool2d_op.md
+      - Max Pool3D Op: API/functional/spacial_ops/max_pool3d_op.md
+    - Unary Ops:
+      - Abs Op: API/functional/unary_ops/abs_op.md
+      - Acos Op: API/functional/unary_ops/acos_op.md
+      - Asin Op: API/functional/unary_ops/asin_op.md
+      - Atan Op: API/functional/unary_ops/atan_op.md
+      - Conj Op: API/functional/unary_ops/conj_op.md
+      - Cos Op: API/functional/unary_ops/cos_op.md
+      - Cosh Op: API/functional/unary_ops/cosh_op.md
+      - Exp Op: API/functional/unary_ops/exp_op.md
+      - Log Op: API/functional/unary_ops/log_op.md
+      - Neg Op: API/functional/unary_ops/neg_op.md
+      - Reciprocal Op: API/functional/unary_ops/reciprocal_op.md
+      - Relu Op: API/functional/unary_ops/relu_op.md
+      - Sigmoid Op: API/functional/unary_ops/sigmoid_op.md
+      - Sign Op: API/functional/unary_ops/sign_op.md
+      - Sin Op: API/functional/unary_ops/sin_op.md
+      - Sinh Op: API/functional/unary_ops/sinh_op.md
+      - Sqrt Op: API/functional/unary_ops/sqrt_op.md
+      - Square Op: API/functional/unary_ops/square_op.md
+      - Tan Op: API/functional/unary_ops/tan_op.md
+      - Tanh Op: API/functional/unary_ops/tanh_op.md
+    - View Ops:
+      - Array Slice Op: API/functional/view_ops/array_slice_op.md
+      - As Strided Op: API/functional/view_ops/as_strided_op.md
+      - Detach Op: API/functional/view_ops/detach_op.md
+      - Expand Op: API/functional/view_ops/expand_op.md
+      - Imag Op: API/functional/view_ops/imag_op.md
+      - Pad Op: API/functional/view_ops/pad_op.md
+      - Permute Op: API/functional/view_ops/permute_op.md
+      - Real Op: API/functional/view_ops/real_op.md
+      - Squeeze Op: API/functional/view_ops/squeeze_op.md
+      - Unsqueeze Op: API/functional/view_ops/unsqueeze_op.md
+      - View As Imag Op: API/functional/view_ops/view_as_imag_op.md
+      - View As Real Op: API/functional/view_ops/view_as_real_op.md
+      - View Op: API/functional/view_ops/view_op.md
+  - Nn:
+    - Modules:
+      - Mlp: API/nn/modules/mlp.md
+  - Optim:
+    - Adagrad: API/optim/adagrad.md
+    - Adam: API/optim/adam.md
+    - Rmsprop: API/optim/rmsprop.md
+    - Sgd: API/optim/sgd.md
+  - Utils:
+    - Aliases: API/utils/aliases.md
+    - Array Conversions: API/utils/array_conversions.md
+    - General: API/utils/general.md
+    - Python Utils: API/utils/python_utils.md
+theme:
+  name: material
+  palette:
+  - scheme: default
+    primary: white
+    accent: blue
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: black
+    accent: deep-orange
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+markdown_extensions:
+- abbr
+- admonition
+- attr_list
+- def_list
+- footnotes
+- md_in_html
+- toc:
+    permalink: true
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.details
+- pymdownx.highlight
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- toc:
+    toc_depth: 3

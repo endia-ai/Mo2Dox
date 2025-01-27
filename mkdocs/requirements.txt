@@ -1,0 +1,5 @@
+mkdocs==1.5.3
+mkdocs-material==9.4.8
+mdutils==1.6.0
+PyYAML==6.0.1
+pathlib==1.0.1
